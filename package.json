@@ -1,0 +1,48 @@
+{
+  "name": "eth-starter-project",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@chainlink/contracts": "^0.2.2",
+    "@headlessui/react": "^1.4.1",
+    "@heroicons/react": "^1.0.4",
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "@openzeppelin/contracts": "^4.3.2",
+    "@tailwindcss/forms": "^0.3.3",
+    "@types/react-modal": "^3.13.1",
+    "add": "^2.0.6",
+    "arrow-keys-react": "^1.0.6",
+    "autoprefixer": "^10.3.5",
+    "chai": "^4.3.4",
+    "classnames": "^2.3.1",
+    "dotenv": "^10.0.0",
+    "ethereum-waffle": "^3.4.0",
+    "ethers": "^5.4.7",
+    "hardhat": "^2.6.4",
+    "next": "^12.0.1",
+    "postcss": "^8.3.7",
+    "react": "^17.0.2",
+    "react-countdown": "^2.3.2",
+    "react-dom": "^17.0.2",
+    "react-hot-toast": "^2.1.1",
+    "react-modal": "^3.14.3",
+    "tailwindcss": "^2.2.15",
+    "unstated-next": "^1.1.0",
+    "yarn": "^1.22.11"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-etherscan": "^2.1.6",
+    "@types/react": "17.0.24",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.2",
+    "hardhat-gas-reporter": "^1.0.4",
+    "typescript": "4.4.3"
+  }
+}
