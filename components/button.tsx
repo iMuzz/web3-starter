@@ -1,7 +1,7 @@
 // Button.jsx
 import classnames from 'classnames'
 
-interface IButtonProps {
+interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'sm' | 'md' | 'lg'
   bgColor?: 'sm' | 'md' | 'lg'
   bgHoverColor?: 'sm' | 'md' | 'lg'
@@ -21,18 +21,21 @@ const Button: React.FC<IButtonProps> = ({
   disabled = false,
   classOverrides,
   children = '',
+  ...props
 }) => {
   return (
     <button
       type="button"
       disabled={isLoading || disabled}
-      className={classnames(`transition-all duration-200 text-${textColor} py-2 px-4 rounded`, {
+      className={classnames(`transition-all duration-200 text-${textColor} py-2 px-4 rounded font-medium text-center`, {
         'text-xs': size === 'sm',
+        'text-md': size === 'md',
         'text-xl': size === 'lg',
         [`bg-${bgColor} hover:bg-${bgHoverColor}`]: !isLoading,
         'bg-gray-400 cursor-not-allowed': isLoading || disabled,
         [`${classOverrides}`]: classOverrides?.length && classOverrides?.length > 0,
       })}
+      {...props}
     >
       {children}
     </button>

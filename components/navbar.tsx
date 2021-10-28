@@ -4,6 +4,7 @@ import { LogoutIcon } from '@heroicons/react/solid'
 
 import useWeb3Container from '../hooks/useWeb3User'
 import AddressPill from './addressPill'
+import Button from './button'
 
 /**
  * Navigation bar that enables connect/disconnect from Web3.
@@ -57,15 +58,7 @@ const Navbar = () => {
           </button>
         </div>
       ) : (
-        <>
-          <button
-            type="button"
-            className="transition-all duration-200 inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none "
-            onClick={handleConnect}
-          >
-            Connect Wallet
-          </button>
-        </>
+        <Button onClick={handleConnect}>Connect Wallet</Button>
       )}
     </nav>
   )
