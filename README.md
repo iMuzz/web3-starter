@@ -41,3 +41,11 @@ NEXT_PUBLIC_NETWORK_NAME=""
 # you can approximate the cost of deployin your contract on mainnet
 COIN_MARKETCAP_API_KEY=""
 ```
+
+## Resources
+
+#### Frontend
+
+- **[Tailwind UI](https://tailwindcss.com/docs)**
+- **[Tailwind UI Components](https://tailwindui.com/)**
+- **[Tailwind Community Components](https://tailwindcomponents.com/)**
