@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import useWeb3Container from '../container/web3'
 
 const AdminPanel = () => {
   const [show, setShow] = useState(false)
+  const { count, increment } = useWeb3Container.useContainer()
 
   return (
     <div className="bg-white overflow-hidden border border-solid border-gray-100 shadow rounded-lg max-w-md m-auto">
@@ -9,10 +11,11 @@ const AdminPanel = () => {
         <h3 className="text-lg leading-6 font-medium text-gray-900">Admin Panel</h3>
         <div className="sm:grid sm:grid-cols-2 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
           <div>Unpause</div>
+          <span>Count: {count}</span>
           <button
             type="button"
             className="transition-all duration-200 inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none "
-            onClick={() => {}}
+            onClick={increment}
           >
             Unpause Contract
           </button>
