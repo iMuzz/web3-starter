@@ -3,21 +3,15 @@ import 'tailwindcss/tailwind.css'
 
 import type { AppProps } from 'next/app'
 
-import EthersProvider from '../ethers'
+import { UseWalletProvider } from 'use-wallet'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <EthersProvider>
-      <div>
+    <div className="bg-white min-h-screen">
+      <UseWalletProvider>
         <Component {...pageProps} />
-        <style jsx global>{`
-          body {
-            background: black;
-            color: white;
-          }
-        `}</style>
-      </div>
-    </EthersProvider>
+      </UseWalletProvider>
+    </div>
   )
 }
 export default MyApp
