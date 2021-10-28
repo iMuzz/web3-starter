@@ -2,14 +2,33 @@ import React, { useEffect, useState } from 'react'
 import { useWallet } from 'use-wallet'
 import classnames from 'classnames'
 import AddressPill from './addressPill'
+import { ethers, utils } from 'ethers'
+import { LogoutIcon } from '@heroicons/react/solid'
 
 /**
  * Navigation bar that enables connect/disconnect from Web3.
  */
 const Navbar = () => {
   const wallet = useWallet()
+  const [ensName, setEnsName] = useState<null | string>(null)
+  const { formatUnits } = utils
 
-  const { status, reset, networkName, account, balance } = wallet
+  const { status, reset, networkName, account, balance, ethereum } = wallet
+
+  useEffect(() => {
+    if (account) {
+      intializeAccount(account)
+    }
+  })
+
+  const intializeAccount = async (address: string) => {
+    const provider = new ethers.providers.Web3Provider(ethereum)
+    let ensName
+    if (networkName === 'main') {
+      ensName = await provider.lookupAddress(address)
+      setEnsName(ensName)
+    }
+  }
 
   const handleConnect = () => {
     wallet.connect('injected')
@@ -18,6 +37,8 @@ const Navbar = () => {
   const handleDisconnect = () => {
     reset()
   }
+
+  const formattedETH = parseFloat(formatUnits(balance)).toFixed(3)
 
   return (
     <nav className="flex justify-between w-full py-8 ">
@@ -42,19 +63,19 @@ const Navbar = () => {
             </svg>
             {networkName == 'main' ? `Mainnet` : networkName}
           </span>
-          <AddressPill address={account} balance={balance} />
+          <AddressPill address={account ? account : ''} ensName={ensName} balance={formattedETH} />
           <button
             type="button"
-            className="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-red-500 hover:bg-red-700 focus:outline-none "
+            className="transition-all duration-200  inline-flex items-center p-2 rounded-md shadow-sm text-white border border-solid border-gray-200 hover:bg-gray-100"
             onClick={handleDisconnect}
           >
-            Disconnect
+            <LogoutIcon fill="#000000" className="h-4 w-4" />
           </button>
         </div>
       ) : (
         <button
           type="button"
-          className="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none "
+          className="transition-all duration-200 inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none "
           onClick={handleConnect}
         >
           Connect Wallet
