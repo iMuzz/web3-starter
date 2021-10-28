@@ -67,7 +67,6 @@ const Navbar = () => {
           </button>
         </>
       )}
-      <style jsx>{``}</style>
     </nav>
   )
 }

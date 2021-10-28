@@ -1,5 +1,4 @@
 import type { NextPage } from 'next'
-import { Toaster } from 'react-hot-toast'
 import Head from 'next/head'
 import { useWallet } from 'use-wallet'
 
@@ -19,7 +18,6 @@ const Home: NextPage = () => {
       </Head>
 
       <Navbar />
-      <Toaster position="top-left" />
 
       <h1 className="m-auto text-center mt-8 text-9xl font-extrabold"> Web 3 Starter</h1>
 
