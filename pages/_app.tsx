@@ -7,7 +7,7 @@ import { UseWalletProvider } from 'use-wallet'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-white min-h-screen">
       <UseWalletProvider>
         <Component {...pageProps} />
       </UseWalletProvider>

@@ -20,7 +20,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="flex justify-between w-full mx-8 py-8 ">
+    <nav className="flex justify-between w-full py-8 ">
       <div className="w-8 h-8 bg-black rounded-full" />
       {status === 'connected' ? (
         <div className="flex items-center space-x-2">
