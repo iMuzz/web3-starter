@@ -1,4 +1,4 @@
-import data from './web3' // Import data container
+import data from './useWeb3User' // Import data container
 
 // Export global provider to encompass application
 export default function GlobalWeb3UserProvider({ children }: { children: JSX.Element }) {

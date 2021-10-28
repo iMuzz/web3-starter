@@ -2,16 +2,13 @@ import type { NextPage } from 'next'
 import { Toaster } from 'react-hot-toast'
 import Head from 'next/head'
 import { useWallet } from 'use-wallet'
-import { useEffect } from 'react'
 
 import Navbar from '../components/navbar'
 import AdminPanel from '../components/adminPanel'
 
 const Home: NextPage = () => {
   const wallet = useWallet()
-  const { connect, status, account, balance, reset } = wallet
-
-  useEffect(() => {})
+  const { status } = wallet
 
   return (
     <div className="max-w-screen-xl m-auto">
@@ -28,7 +25,8 @@ const Home: NextPage = () => {
 
       <div className="flex justify-center mt-8">
         {status === 'connected' && (
-          <div>
+          <div className="flex space-x-3">
+            <AdminPanel />
             <AdminPanel />
           </div>
         )}
