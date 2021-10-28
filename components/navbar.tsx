@@ -1,40 +1,25 @@
-import React, { useEffect, useState } from 'react'
-import { useWallet } from 'use-wallet'
 import classnames from 'classnames'
-import AddressPill from './addressPill'
-import { ethers, utils } from 'ethers'
+import { utils } from 'ethers'
 import { LogoutIcon } from '@heroicons/react/solid'
+
+import useWeb3Container from '../hooks/useWeb3User'
+import AddressPill from './addressPill'
+import Button from './button'
 
 /**
  * Navigation bar that enables connect/disconnect from Web3.
  */
 const Navbar = () => {
-  const wallet = useWallet()
-  const [ensName, setEnsName] = useState<null | string>(null)
+  const { wallet, ensName } = useWeb3Container.useContainer()
+  const { status, reset, networkName, account, balance } = wallet
+
   const { formatUnits } = utils
-
-  const { status, reset, networkName, account, balance, ethereum } = wallet
-
-  useEffect(() => {
-    if (account) {
-      intializeAccount(account)
-    }
-  })
-
-  const intializeAccount = async (address: string) => {
-    const provider = new ethers.providers.Web3Provider(ethereum)
-    let ensName
-    if (networkName === 'main') {
-      ensName = await provider.lookupAddress(address)
-      setEnsName(ensName)
-    }
-  }
 
   const handleConnect = () => {
     wallet.connect('injected')
   }
 
-  const handleDisconnect = () => {
+  const handleLogout = () => {
     reset()
   }
 
@@ -67,21 +52,14 @@ const Navbar = () => {
           <button
             type="button"
             className="transition-all duration-200  inline-flex items-center p-2 rounded-md shadow-sm text-white border border-solid border-gray-200 hover:bg-gray-100"
-            onClick={handleDisconnect}
+            onClick={handleLogout}
           >
             <LogoutIcon fill="#000000" className="h-4 w-4" />
           </button>
         </div>
       ) : (
-        <button
-          type="button"
-          className="transition-all duration-200 inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none "
-          onClick={handleConnect}
-        >
-          Connect Wallet
-        </button>
+        <Button onClick={handleConnect}>Connect Wallet</Button>
       )}
-      <style jsx>{``}</style>
     </nav>
   )
 }
