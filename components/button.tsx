@@ -1,5 +1,6 @@
 // Button.jsx
 import classnames from 'classnames'
+import Spinner from './spinner'
 
 interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'sm' | 'md' | 'lg'
@@ -37,7 +38,16 @@ const Button: React.FC<IButtonProps> = ({
       })}
       {...props}
     >
-      {children}
+      <div className="relative">
+        <div
+          className={classnames('', {
+            'opacity-0 h-0': isLoading,
+          })}
+        >
+          {children}
+        </div>
+        {isLoading && <Spinner />}
+      </div>
     </button>
   )
 }

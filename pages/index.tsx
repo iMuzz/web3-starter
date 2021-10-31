@@ -5,6 +5,7 @@ import { Toaster } from 'react-hot-toast'
 
 import Navbar from '../components/navbar'
 import AdminPanel from '../components/adminPanel'
+import { ENSSection } from '../components/web3FeatureSections'
 
 const Home: NextPage = () => {
   const wallet = useWallet()
@@ -20,7 +21,35 @@ const Home: NextPage = () => {
       <Toaster />
       <Navbar />
 
-      <h1 className="m-auto text-center mt-8 text-9xl font-extrabold"> Web 3 Starter</h1>
+      <h1 className="m-auto text-center mt-8 text-6xl font-extrabold">
+        Welcome to <span className="rotating-hue">Web 3 Starter!</span>
+      </h1>
+
+      <div className="flex flex-col space-y-4 justify-center mt-12 m-auto max-w-4xl">
+        <div className="shadow-md rounded-md border border-solid border-gray-200 grid grid-cols-2 gap-2 overflow-hidden">
+          <div className="p-6">
+            <h2 className="text-2xl font-bold mb-2 text-gray-800"> Multiwallet Support</h2>
+            <p className="text-gray-600">
+              Web 3 starter project is set up to work with MetaMask, Fortmatic, Wallet Connect to support the widest
+              variety of wallets providers.
+            </p>
+          </div>
+          <div className="bg-red-500"></div>
+        </div>
+
+        <ENSSection />
+
+        <div className="shadow-md rounded-md border border-solid border-gray-200 grid grid-cols-2 gap-2 overflow-hidden">
+          <div className="p-6">
+            <h2 className="text-2xl font-bold mb-2 text-gray-800"> Transaction States</h2>
+            <p className="text-gray-600">
+              Web 3 starter project is set up to work with MetaMask, Fortmatic, Wallet Connect to support the widest
+              variety of wallets providers.
+            </p>
+          </div>
+          <div className="bg-blue-700"></div>
+        </div>
+      </div>
 
       <div className="flex justify-center mt-8">
         {status === 'connected' && (
@@ -31,12 +60,13 @@ const Home: NextPage = () => {
         )}
       </div>
       <style jsx>{`
-        h1 {
+        .rotating-hue {
           background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           -webkit-animation: hue 30s infinite linear;
         }
+
         @-webkit-keyframes hue {
           from {
             -webkit-filter: hue-rotate(0deg);
