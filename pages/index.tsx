@@ -21,8 +21,8 @@ const Home: NextPage = () => {
       <Toaster />
       <Navbar />
 
-      <h1 className="m-auto text-center mt-8 text-6xl font-extrabold">
-        Welcome to <span className="rotating-hue">Web 3 Starter!</span>
+      <h1 className="m-auto text-center md:mt-8 text-3xl md:text-6xl font-extrabold">
+        Welcome to <span className="rotating-hue">Web 3 Starter</span>
       </h1>
 
       <div className="flex flex-col space-y-4 justify-center mt-12 m-auto max-w-4xl">

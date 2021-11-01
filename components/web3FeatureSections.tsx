@@ -12,12 +12,12 @@ interface IFeatureSectionProps {
 
 const FeatureSection: React.FC<IFeatureSectionProps> = ({ title, description, children, bgColorOverride }) => {
   return (
-    <div className="shadow-md rounded-md border border-solid light:border-gray-200 dark:border-gray-500 grid grid-cols-2 gap-2 overflow-hidden">
+    <div className="shadow-md rounded-md border border-solid light:border-gray-200 dark:border-gray-500 grid grid-rows-1 md:grid-cols-2 gap-2 overflow-hidden">
       <div className="p-6">
         <h2 className="text-2xl font-bold mb-2 light:text-gray-800"> {title}</h2>
         <p className="light:text-gray-600">{description}</p>
       </div>
-      <div className={'bg-yellow-400 flex justify-center items-center ' + bgColorOverride}>{children}</div>
+      <div className={'bg-gray-500 py-10 md:p-0 flex justify-center items-center ' + bgColorOverride}>{children}</div>
     </div>
   )
 }
@@ -65,8 +65,9 @@ export const ENSSection: React.FC<{}> = () => {
       title="ENS Resolution"
       description="ENS is the most widely integrated blockchain naming standard and is a growing network of usernames. Web 3
     Starter has ENS support out of the box."
+      bgColorOverride="bg-yellow-400"
     >
-      <div className="p-8 shadow-md bg-white rounded-md">
+      <div className="p-4 md:p-8 shadow-md bg-white rounded-md">
         {isBtnShown ? (
           <Button onClick={startAnimation} isLoading={isButtonLoading}>
             Connect Wallet
