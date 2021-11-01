@@ -1,6 +1,6 @@
 import { useTheme } from 'next-themes'
 
-import Button from './button'
+import Switch from './switch'
 
 /**
  * Button to toggle dark/light mode.
@@ -23,11 +23,11 @@ const DarkModeToggle = () => {
   /**
    * Performs the actual toggle
    */
-  const handleToggle = () => {
+  const handleThemeChange = () => {
     setTheme(getNextTheme())
   }
 
-  return <Button onClick={handleToggle}>{getNextTheme() === 'dark' ? 'gn' : 'gm'}</Button>
+  return <Switch onClick={handleThemeChange} />
 }
 
 export default DarkModeToggle

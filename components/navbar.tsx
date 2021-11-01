@@ -34,7 +34,7 @@ const Navbar = () => {
       </div>
 
       {/* Connect to web3, dark mode toggle */}
-      <div className="flex space-x-2">
+      <div className="flex items-center space-x-2">
         {status === 'connected' ? (
           <div className="flex items-center space-x-2">
             <span
