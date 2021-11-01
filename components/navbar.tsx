@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
     <nav className="flex justify-between w-full py-8 ">
       {/* Logo */}
-      <div className="w-8 h-8 bg-black rounded-full" />
+      <div className="w-8 h-8 bg-black rounded-full text-white flex justify-center items-center text-xs">W3</div>
 
       {/* Connect to web3, dark mode toggle */}
       <div className="flex space-x-2">
@@ -46,10 +46,17 @@ const Navbar = () => {
                   'text-indigo-400': networkName == 'main',
                   'text-yellow-400': networkName !== 'main',
                 })}
-                fill="currentColor"
-                viewBox="0 0 8 8"
               >
-                <circle cx={4} cy={4} r={3} />
+                <svg
+                  className={classnames('-ml-1 mr-1.5 h-2 w-2', {
+                    'text-indigo-400': networkName == 'main',
+                    'text-yellow-400': networkName !== 'main',
+                  })}
+                  fill="currentColor"
+                  viewBox="0 0 8 8"
+                >
+                  <circle cx={4} cy={4} r={3} />
+                </svg>
               </svg>
               {networkName == 'main' ? `Mainnet` : networkName}
             </span>
