@@ -5,7 +5,7 @@ import { Toaster } from 'react-hot-toast'
 
 import Navbar from '../components/navbar'
 import AdminPanel from '../components/adminPanel'
-import { ENSSection } from '../components/web3FeatureSections'
+import { ENSSection, TxStatesSection } from '../components/web3FeatureSections'
 
 const Home: NextPage = () => {
   const wallet = useWallet()
@@ -38,17 +38,7 @@ const Home: NextPage = () => {
         </div>
 
         <ENSSection />
-
-        <div className="shadow-md rounded-md border border-solid border-gray-200 grid grid-cols-2 gap-2 overflow-hidden">
-          <div className="p-6">
-            <h2 className="text-2xl font-bold mb-2 text-gray-800"> Transaction States</h2>
-            <p className="text-gray-600">
-              Web 3 starter project is set up to work with MetaMask, Fortmatic, Wallet Connect to support the widest
-              variety of wallets providers.
-            </p>
-          </div>
-          <div className="bg-blue-700"></div>
-        </div>
+        <TxStatesSection />
       </div>
 
       <div className="flex justify-center mt-8">

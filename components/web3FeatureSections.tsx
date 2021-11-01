@@ -5,16 +5,17 @@ import Button from './button'
 interface IFeatureSectionProps {
   title: string
   description: string
+  bgColorOverride?: string
 }
 
-const FeatureSection: React.FC<IFeatureSectionProps> = ({ title, description, children }) => {
+const FeatureSection: React.FC<IFeatureSectionProps> = ({ title, description, children, bgColorOverride }) => {
   return (
     <div className="shadow-md rounded-md border border-solid border-gray-200 grid grid-cols-2 gap-2 overflow-hidden">
       <div className="p-6">
         <h2 className="text-2xl font-bold mb-2 text-gray-800"> {title}</h2>
         <p className="text-gray-600">{description}</p>
       </div>
-      <div className="bg-yellow-400 flex justify-center items-center">{children}</div>
+      <div className={'bg-yellow-400 flex justify-center items-center ' + bgColorOverride}>{children}</div>
     </div>
   )
 }
@@ -54,6 +55,20 @@ export const ENSSection: React.FC<{}> = () => {
         ) : (
           <AddressPill address={'0xd6CB70a88bB0D8fB1be377bD3E48e603528AdB54'} ensName={'faraaz.eth'} balance={'25'} />
         )}
+      </div>
+    </FeatureSection>
+  )
+}
+
+export const TxStatesSection: React.FC<{}> = () => {
+  return (
+    <FeatureSection
+      title="Transaction States"
+      description="Transaction states are mapped to user-friendly toasts to give the user feedback on the state of the world."
+      bgColorOverride="bg-blue-700"
+    >
+      <div className="p-8 shadow-md bg-white rounded-md">
+        <Button>Connect Wallet</Button>
       </div>
     </FeatureSection>
   )
