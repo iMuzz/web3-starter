@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { CheckCircleIcon } from '@heroicons/react/solid'
+import Image from 'next/image'
 
 import Button from './button'
 import Spinner from './spinner'
@@ -30,13 +31,17 @@ export const WalletConnectSection: React.FC<{}> = () => {
   return (
     <FeatureSection
       title="Multiwallet Support"
-      description="Web 3 starter project is set up to work with MetaMask, Fortmatic, Wallet Connect to support the widest 
-      variety of wallets providers."
+      description="Web 3 starter project is set up to work with MetaMask & Wallet Connect to support the widest 
+      variety of wallets providers. More coming soon."
       bgColorOverride="bg-red-500"
     >
-      <div className="p-8 shadow-md bg-white rounded-md">
-        <Button onClick={() => setIsModalOpen(true)}>Connect Wallet</Button>
-        <ConnectWallet isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
+      <div className="flex space-x-4">
+        <div className="p-2 shadow-md bg-white rounded-md">
+          <Image alt="Metamask logo" src="/metamask.svg" width="50" height="50" />
+        </div>
+        <div className="p-2 shadow-md bg-white rounded-md">
+          <Image alt="Wallet connect logo" src="/wallet-connect.svg" width="50" height="50" />
+        </div>
       </div>
     </FeatureSection>
   )
@@ -106,7 +111,7 @@ export const TxStatesSection: React.FC<{}> = () => {
         {isLoading ? (
           <>
             <Spinner />
-            <span className="ml-2">Transaction processing</span>
+            <span className="ml-2 dark:text-black">Transaction processing</span>
           </>
         ) : (
           <>
