@@ -29,7 +29,9 @@ const Navbar = () => {
   return (
     <nav className="flex justify-between w-full py-8 ">
       {/* Logo */}
-      <div className="w-8 h-8 bg-black rounded-full text-white flex justify-center items-center text-xs">W3</div>
+      <div className="w-8 h-8 bg-black rounded-full border dark:border-white text-white flex justify-center items-center text-xs">
+        W3
+      </div>
 
       {/* Connect to web3, dark mode toggle */}
       <div className="flex space-x-2">

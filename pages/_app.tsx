@@ -10,7 +10,7 @@ import Web3UserProvider from '../hooks/web3UserProvider'
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute="class">
-      <div className="min-h-screen bg-white dark:bg-gray-900">
+      <div className="min-h-screen bg-white dark:bg-gray-900 dark:text-white">
         <UseWalletProvider>
           <Web3UserProvider>
             <Component {...pageProps} />

@@ -9,10 +9,10 @@ interface IFeatureSectionProps {
 
 const FeatureSection: React.FC<IFeatureSectionProps> = ({ title, description, children }) => {
   return (
-    <div className="shadow-md rounded-md border border-solid border-gray-200 grid grid-cols-2 gap-2 overflow-hidden">
+    <div className="shadow-md rounded-md border border-solid light:border-gray-200 dark:border-gray-500 grid grid-cols-2 gap-2 overflow-hidden">
       <div className="p-6">
-        <h2 className="text-2xl font-bold mb-2 text-gray-800"> {title}</h2>
-        <p className="text-gray-600">{description}</p>
+        <h2 className="text-2xl font-bold mb-2 light:text-gray-800"> {title}</h2>
+        <p className="light:text-gray-600">{description}</p>
       </div>
       <div className="bg-yellow-400 flex justify-center items-center">{children}</div>
     </div>
