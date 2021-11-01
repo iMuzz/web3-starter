@@ -13,7 +13,15 @@ export default function connectModal({ isOpen, setIsOpen }: IProps) {
   const { wallet } = useWeb3Container.useContainer()
 
   const handleConnect = () => {
-    wallet.connect('injected')
+    wallet.connect('injected').then(() => {
+      setIsOpen(false)
+    })
+  }
+
+  const handleWalletConnect = () => {
+    wallet.connect('walletconnect').then(() => {
+      setIsOpen(false)
+    })
   }
 
   const closeModal = () => {
@@ -51,16 +59,9 @@ export default function connectModal({ isOpen, setIsOpen }: IProps) {
           >
             <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
               <div className="mt-4 flex space-x-2">
-                <Button onClick={() => setIsOpen(false)}>Close</Button>
+                <Button onClick={closeModal}>Close</Button>
                 <Button onClick={handleConnect}>Injected</Button>
-                <Button
-                  type="button"
-                  onClick={() => {
-                    wallet.connect('walletconnect')
-                  }}
-                >
-                  WalletConnect
-                </Button>
+                <Button onClick={handleWalletConnect}>WalletConnect</Button>
               </div>
             </div>
           </Transition.Child>
