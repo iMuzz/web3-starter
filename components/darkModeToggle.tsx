@@ -8,6 +8,10 @@ import Button from './button'
 const DarkModeToggle = () => {
   const { theme, systemTheme, setTheme } = useTheme() // next-themes hook to enable dark mode
 
+  /**
+   * Fetches the next theme that would be toggled to
+   * @returns 'dark' or 'light'
+   */
   const getNextTheme = () => {
     if (theme === 'system') {
       return systemTheme === 'light' ? 'dark' : 'light'
@@ -16,6 +20,9 @@ const DarkModeToggle = () => {
     }
   }
 
+  /**
+   * Performs the actual toggle
+   */
   const handleToggle = () => {
     setTheme(getNextTheme())
   }
