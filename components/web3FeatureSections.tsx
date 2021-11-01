@@ -75,7 +75,7 @@ export const ENSSection: React.FC<{}> = () => {
     Starter has ENS support out of the box."
       bgColorOverride="bg-yellow-400"
     >
-      <div className="p-4 md:p-8 shadow-md bg-white rounded-md">
+      <div className="p-4 md:px-8 shadow-md bg-white rounded-md">
         {isBtnShown ? (
           <Button onClick={startAnimation} isLoading={isButtonLoading}>
             Connect Wallet
@@ -131,7 +131,7 @@ export const GMModeSection: React.FC<{}> = () => {
       description="It's 2021 — can you really ship a product without dark mode?"
       bgColorOverride="bg-purple-700"
     >
-      <div className="p-8 shadow-md bg-white rounded-md">
+      <div className="p-4 px-8 shadow-md bg-white rounded-md">
         <DarkModeToggle />
       </div>
     </FeatureSection>
