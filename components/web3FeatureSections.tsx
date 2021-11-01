@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react'
-import AddressPill from './addressPill'
+import { CheckCircleIcon } from '@heroicons/react/solid'
+
 import Button from './button'
+import Spinner from './spinner'
+import AddressPill from './addressPill'
 import DarkModeToggle from './darkModeToggle'
-import ConnectWallet from '../components/connectWalletModal'
+import ConnectWallet from './connectWalletModal'
 
 interface IFeatureSectionProps {
   title: string
@@ -81,14 +84,36 @@ export const ENSSection: React.FC<{}> = () => {
 }
 
 export const TxStatesSection: React.FC<{}> = () => {
+  const [isLoading, setLoading] = useState(true)
+
+  const completeTx = () => {
+    setLoading(false)
+  }
+
+  useEffect(() => {
+    setTimeout(() => {
+      completeTx()
+    }, 7000)
+  }, [])
+
   return (
     <FeatureSection
       title="Transaction States"
       description="Transaction states are mapped to user-friendly toasts to give the user feedback on the state of their transaction."
       bgColorOverride="bg-blue-700"
     >
-      <div className="p-8 shadow-md bg-white rounded-md">
-        <Button>Connect Wallet</Button>
+      <div className="p-4 px-4 shadow-md bg-white rounded-md flex">
+        {isLoading ? (
+          <>
+            <Spinner />
+            <span className="ml-2">Transaction processing</span>
+          </>
+        ) : (
+          <>
+            <CheckCircleIcon fill="#12b981" className="h-6 w-6" />
+            <span className="ml-1">Transaction confirmed</span>
+          </>
+        )}
       </div>
     </FeatureSection>
   )
