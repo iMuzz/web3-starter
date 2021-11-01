@@ -32,7 +32,7 @@ export const WalletConnectSection: React.FC<{}> = () => {
       title="Multiwallet Support"
       description="Web 3 starter project is set up to work with MetaMask, Fortmatic, Wallet Connect to support the widest 
       variety of wallets providers."
-      bgColorOverride="bg-purple-700"
+      bgColorOverride="bg-red-500"
     >
       <div className="p-8 shadow-md bg-white rounded-md">
         <Button onClick={() => setIsModalOpen(true)}>Connect Wallet</Button>
@@ -110,8 +110,8 @@ export const TxStatesSection: React.FC<{}> = () => {
           </>
         ) : (
           <>
-            <CheckCircleIcon fill="#12b981" className="h-6 w-6" />
-            <span className="ml-1">Transaction confirmed</span>
+            <CheckCircleIcon fill="#079669" className="h-6 w-6" />
+            <span className="ml-1 dark:text-black">Transaction confirmed</span>
           </>
         )}
       </div>
