@@ -23,7 +23,7 @@ const Navbar = () => {
     reset()
   }
 
-  const formattedETH = parseFloat(formatUnits(balance)).toFixed(3)
+  const formattedETH = parseFloat(formatUnits(balance)).toFixed(2)
 
   return (
     <nav className="flex justify-between w-full px-4 py-8">
@@ -37,10 +37,13 @@ const Navbar = () => {
         {status === 'connected' ? (
           <div className="flex items-center space-x-2">
             <span
-              className={classnames('inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium', {
-                'bg-indigo-100 text-indigo-800': networkName == 'main',
-                'bg-yellow-100 text-yellow-800': networkName !== 'main',
-              })}
+              className={classnames(
+                'inline-flex items-center px-3 py-0.5 rounded-full text-xs md:text-sm font-medium',
+                {
+                  'bg-indigo-100 text-indigo-800': networkName == 'main',
+                  'bg-yellow-100 text-yellow-800': networkName !== 'main',
+                },
+              )}
             >
               <svg
                 className={classnames('-ml-1 mr-1.5 h-2 w-2', {
