@@ -11,7 +11,13 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute="class">
       <div className="min-h-screen bg-white dark:bg-gray-900 dark:text-white">
-        <UseWalletProvider>
+        <UseWalletProvider
+          connectors={{
+            walletconnect: {
+              rpcUrl: 'https://eth-mainnet.alchemyapi.io/v2/GBjvplStTQ2x1FiAa5-5Qdyv2_8ZBuwe',
+            },
+          }}
+        >
           <Web3UserProvider>
             <Component {...pageProps} />
           </Web3UserProvider>

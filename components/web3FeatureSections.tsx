@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import AddressPill from './addressPill'
 import Button from './button'
 import DarkModeToggle from './darkModeToggle'
+import ConnectWallet from '../components/connectWalletModal'
 
 interface IFeatureSectionProps {
   title: string
@@ -18,6 +19,23 @@ const FeatureSection: React.FC<IFeatureSectionProps> = ({ title, description, ch
       </div>
       <div className={'bg-yellow-400 flex justify-center items-center ' + bgColorOverride}>{children}</div>
     </div>
+  )
+}
+
+export const WalletConnectSection: React.FC<{}> = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  return (
+    <FeatureSection
+      title="Multiwallet Support"
+      description="Web 3 starter project is set up to work with MetaMask, Fortmatic, Wallet Connect to support the widest 
+      variety of wallets providers."
+      bgColorOverride="bg-purple-700"
+    >
+      <div className="p-8 shadow-md bg-white rounded-md">
+        <Button onClick={() => setIsModalOpen(true)}>Connect Wallet</Button>
+        <ConnectWallet isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
+      </div>
+    </FeatureSection>
   )
 }
 

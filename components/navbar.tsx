@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import classnames from 'classnames'
 import { utils } from 'ethers'
 import { LogoutIcon } from '@heroicons/react/solid'
@@ -5,6 +6,7 @@ import { LogoutIcon } from '@heroicons/react/solid'
 import useWeb3Container from '../hooks/useWeb3User'
 import AddressPill from './addressPill'
 import Button from './button'
+import ConnectModal from './connectWalletModal'
 
 /**
  * Navigation bar that enables connect/disconnect from Web3.
@@ -12,12 +14,9 @@ import Button from './button'
 const Navbar = () => {
   const { wallet, ensName } = useWeb3Container.useContainer()
   const { status, reset, networkName, account, balance } = wallet
+  const [connectModalIsOpen, setConnectModalIsOpen] = useState(false)
 
   const { formatUnits } = utils
-
-  const handleConnect = () => {
-    wallet.connect('injected')
-  }
 
   const handleLogout = () => {
     reset()
@@ -31,6 +30,8 @@ const Navbar = () => {
       <div className="w-8 h-8 bg-black rounded-full border dark:border-white text-white flex justify-center items-center text-xs">
         W3
       </div>
+
+      <ConnectModal setIsOpen={setConnectModalIsOpen} isOpen={connectModalIsOpen} />
 
       {/* Connect to web3, dark mode toggle */}
       <div className="flex items-center space-x-2">
@@ -71,7 +72,7 @@ const Navbar = () => {
             </Button>
           </div>
         ) : (
-          <Button onClick={handleConnect}>Connect Wallet</Button>
+          <Button onClick={() => setConnectModalIsOpen(true)}>Connect Wallet</Button>
         )}
       </div>
     </nav>

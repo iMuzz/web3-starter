@@ -3,9 +3,9 @@ import Head from 'next/head'
 import { useWallet } from 'use-wallet'
 import { Toaster } from 'react-hot-toast'
 
-import Navbar from '../components/navbar'
+import { ENSSection, TxStatesSection, GMModeSection, WalletConnectSection } from '../components/web3FeatureSections'
 import AdminPanel from '../components/adminPanel'
-import { ENSSection, TxStatesSection, GMModeSection } from '../components/web3FeatureSections'
+import Navbar from '../components/navbar'
 
 const Home: NextPage = () => {
   const wallet = useWallet()
@@ -26,17 +26,7 @@ const Home: NextPage = () => {
       </h1>
 
       <div className="flex flex-col space-y-4 justify-center mt-12 m-auto max-w-4xl">
-        <div className="shadow-md rounded-md border border-solid border-gray-200 dark:border-gray-500 grid grid-cols-2 gap-2 overflow-hidden">
-          <div className="p-6">
-            <h2 className="text-2xl font-bold mb-2 light:text-gray-800"> Multiwallet Support</h2>
-            <p className="light:text-gray-600">
-              Web 3 starter project is set up to work with MetaMask, Fortmatic, Wallet Connect to support the widest
-              variety of wallets providers.
-            </p>
-          </div>
-          <div className="bg-red-500"></div>
-        </div>
-
+        <WalletConnectSection />
         <ENSSection />
         <TxStatesSection />
         <GMModeSection />
