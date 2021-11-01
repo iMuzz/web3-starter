@@ -5,7 +5,7 @@ import { Toaster } from 'react-hot-toast'
 
 import Navbar from '../components/navbar'
 import AdminPanel from '../components/adminPanel'
-import { ENSSection, TxStatesSection, GMModeSection } from '../components/web3FeatureSections'
+import { ENSSection, TxStatesSection, GMModeSection, MultiWalletSection } from '../components/web3FeatureSections'
 
 const Home: NextPage = () => {
   const wallet = useWallet()
@@ -21,22 +21,12 @@ const Home: NextPage = () => {
       <Toaster />
       <Navbar />
 
-      <h1 className="m-auto text-center mt-8 text-6xl font-extrabold">
+      <h1 className="m-auto text-center mt-5 md:mt-8 text-3xl md:text-6xl font-extrabold">
         Welcome to <span className="rotating-hue">Web 3 Starter!</span>
       </h1>
 
-      <div className="flex flex-col space-y-4 justify-center mt-12 m-auto max-w-4xl">
-        <div className="shadow-md rounded-md border border-solid border-gray-200 dark:border-gray-500 grid grid-cols-2 gap-2 overflow-hidden">
-          <div className="p-6">
-            <h2 className="text-2xl font-bold mb-2 light:text-gray-800"> Multiwallet Support</h2>
-            <p className="light:text-gray-600">
-              Web 3 starter project is set up to work with MetaMask, Fortmatic, Wallet Connect to support the widest
-              variety of wallets providers.
-            </p>
-          </div>
-          <div className="bg-red-500"></div>
-        </div>
-
+      <div className="flex flex-col space-y-4 justify-center mt-8 md:mt-12 px-4 md:p-0 m-auto max-w-4xl">
+        <MultiWalletSection />
         <ENSSection />
         <TxStatesSection />
         <GMModeSection />

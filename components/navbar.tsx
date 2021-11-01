@@ -26,7 +26,7 @@ const Navbar = () => {
   const formattedETH = parseFloat(formatUnits(balance)).toFixed(3)
 
   return (
-    <nav className="flex justify-between w-full py-8 ">
+    <nav className="flex justify-between w-full px-4 py-8">
       {/* Logo */}
       <div className="w-8 h-8 bg-black rounded-full border dark:border-white text-white flex justify-center items-center text-xs">
         W3
