@@ -10,10 +10,10 @@ interface IFeatureSectionProps {
 
 const FeatureSection: React.FC<IFeatureSectionProps> = ({ title, description, children, bgColorOverride }) => {
   return (
-    <div className="shadow-md rounded-md border border-solid border-gray-200 grid grid-cols-2 gap-2 overflow-hidden">
+    <div className="shadow-md rounded-md border border-solid light:border-gray-200 dark:border-gray-500 grid grid-cols-2 gap-2 overflow-hidden">
       <div className="p-6">
-        <h2 className="text-2xl font-bold mb-2 text-gray-800"> {title}</h2>
-        <p className="text-gray-600">{description}</p>
+        <h2 className="text-2xl font-bold mb-2 light:text-gray-800"> {title}</h2>
+        <p className="light:text-gray-600">{description}</p>
       </div>
       <div className={'bg-yellow-400 flex justify-center items-center ' + bgColorOverride}>{children}</div>
     </div>
@@ -64,7 +64,7 @@ export const TxStatesSection: React.FC<{}> = () => {
   return (
     <FeatureSection
       title="Transaction States"
-      description="Transaction states are mapped to user-friendly toasts to give the user feedback on the state of the world."
+      description="Transaction states are mapped to user-friendly toasts to give the user feedback on the state of their transaction."
       bgColorOverride="bg-blue-700"
     >
       <div className="p-8 shadow-md bg-white rounded-md">
