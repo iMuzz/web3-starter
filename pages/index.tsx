@@ -5,7 +5,7 @@ import { Toaster } from 'react-hot-toast'
 
 import Navbar from '../components/navbar'
 import AdminPanel from '../components/adminPanel'
-import { ENSSection, TxStatesSection } from '../components/web3FeatureSections'
+import { ENSSection, TxStatesSection, GMModeSection } from '../components/web3FeatureSections'
 
 const Home: NextPage = () => {
   const wallet = useWallet()
@@ -39,6 +39,7 @@ const Home: NextPage = () => {
 
         <ENSSection />
         <TxStatesSection />
+        <GMModeSection />
       </div>
 
       <div className="flex justify-center mt-8">

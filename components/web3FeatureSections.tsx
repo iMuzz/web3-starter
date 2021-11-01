@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import AddressPill from './addressPill'
 import Button from './button'
+import DarkModeToggle from './darkModeToggle'
 
 interface IFeatureSectionProps {
   title: string
@@ -69,6 +70,20 @@ export const TxStatesSection: React.FC<{}> = () => {
     >
       <div className="p-8 shadow-md bg-white rounded-md">
         <Button>Connect Wallet</Button>
+      </div>
+    </FeatureSection>
+  )
+}
+
+export const GMModeSection: React.FC<{}> = () => {
+  return (
+    <FeatureSection
+      title="GM Mode... Obviously."
+      description="It's 2021 — can you really ship a product without dark mode?"
+      bgColorOverride="bg-purple-700"
+    >
+      <div className="p-8 shadow-md bg-white rounded-md">
+        <DarkModeToggle />
       </div>
     </FeatureSection>
   )
