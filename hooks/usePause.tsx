@@ -11,11 +11,16 @@ const usePause = () => {
 
   const getPaused = async () => {
     setLoading(true)
-    if (!contract) {
-      console.log(`provider or contract is unavailable.`)
-      return
-    } else {
-      setIsPaused(await contract.paused())
+    // TODO: Error handling for contract state fetches
+    try {
+      if (!contract) {
+        console.log(`provider or contract is unavailable.`)
+        return
+      } else {
+        setIsPaused(await contract.paused())
+      }
+    } catch (error: any) {
+      console.log({ error })
     }
     setLoading(false)
   }
