@@ -38,10 +38,6 @@ module.exports = {
     hardhat: {
       chainId: 1337,
     },
-    rinkeby: {
-      url: 'https://eth-rinkeby.alchemyapi.io/v2/3zZBcXrhqyhFmBqFn4aW9_W3YYchlkUL',
-      accounts: [`0x${'53171b46d3f567f4426a7cc845392497ab4c0b1ee29e16282424d22c6bc50a93'}`],
-    },
     gasReporter: {
       currency: 'USD',
       coinmarketcap: COIN_MARKETCAP_API_KEY,
