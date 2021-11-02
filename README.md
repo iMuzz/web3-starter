@@ -1,3 +1,25 @@
+# Web3 Starter
+
+## Why?
+
+For [@faraaznishtar](https://twitter.com/faraaznishtar) and [@jonathanmcai](https://twitter.com/jonathanmcai) to quickly spin up dapp clients.
+
+## Opinionated? 
+
+Very.
+
+Here's the full stack of frameworks/libraries used:
+
+- Next.js React 
+- TailwindCSS for styling
+- [HeadlessUI](https://headlessui.dev/) for Tailwind components
+- [use-wallet](https://github.com/aragon/use-wallet) to connect to Ethereum wallets
+- [davatar](https://www.davatar.xyz/) for ENS avatars
+- [react-hot-toast](https://react-hot-toast.com/) for toast messages
+- [unstated-next](https://github.com/jamiebuilds/unstated-next) for state management
+- [next-themes](https://www.npmjs.com/package/next-themes) for dark mode theme
+
+
 ## How to Setup Development Environment
 
 #### A. Start the local hardhat ethereum node
