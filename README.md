@@ -1,12 +1,6 @@
 # Web3 Starter
 
-## Why?
-
-For [@faraaznishtar](https://twitter.com/faraaznishtar) and [@jonathanmcai](https://twitter.com/jonathanmcai) to quickly spin up dapp clients.
-
-## Opinionated? 
-
-Very.
+Web 3 Starter is a modern web 3 starter template project.
 
 Here's the full stack of frameworks/libraries used:
 
