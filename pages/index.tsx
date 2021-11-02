@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Image from 'next/image'
 import { useWallet } from 'use-wallet'
 import { Toaster } from 'react-hot-toast'
 
@@ -22,7 +23,10 @@ const Home: NextPage = () => {
       <Navbar />
 
       <h1 className="m-auto text-center md:mt-8 text-4xl md:text-6xl font-extrabold">
-        Welcome to <span className="rotating-hue">Web 3 Starter</span>
+        Welcome to{' '}
+        <a href="https://github.com/iMuzz/web3-starter" target="_blank" rel="noreferrer" className="rotating-hue">
+          Web 3 Starter
+        </a>
       </h1>
 
       <div className="flex flex-col space-y-6 justify-center mt-6 md:mt-12 px-4 xs:px-0 m-auto max-w-4xl">
@@ -32,12 +36,32 @@ const Home: NextPage = () => {
         <GMModeSection />
       </div>
 
-      <div className="flex justify-center mt-8 border-t border-solid border-gray-200 max-w-4xl m-auto">
-        {status === 'connected' && (
-          <div className="flex mt-4 space-x-3">
+      {status === 'connected' && (
+        <div className="flex mt-4 space-x-3">
+          <div className="flex justify-center mt-8 border-t border-solid border-gray-200 max-w-4xl m-auto">
             <AdminPanel />
           </div>
-        )}
+        </div>
+      )}
+
+      <a
+        href="https://twitter.com/faraaznishtar"
+        target="_blank"
+        rel="noreferrer"
+        className="fixed left-5 bottom-4 flex flex-col"
+      >
+        <Image src="/github.png" alt="Github Icon" width="35" height="35" />
+      </a>
+      <div className="fixed right-5 bottom-4 flex flex-col">
+        <div className="text-gray-500 dark:text-white text-xs mb-2 text-center">Maintained By</div>
+        <div>
+          <a className="mr-2" href="https://twitter.com/faraaznishtar" target="_blank" rel="noreferrer">
+            <Image className="rounded-full" src="/peng.jpeg" alt="Faraaz N." width="35" height="35" />
+          </a>
+          <a href="https://twitter.com/jonathanmcai" rel="noreferrer" target="_blank">
+            <Image className="rounded-full" src="/jon.jpeg" alt="Jonny Cai" width="35" height="35" />
+          </a>
+        </div>
       </div>
       <style jsx>{`
         .rotating-hue {
