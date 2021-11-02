@@ -45,7 +45,7 @@ const Home: NextPage = () => {
       )}
 
       <a
-        href="https://twitter.com/faraaznishtar"
+        href="https://github.com/iMuzz/web3-starter"
         target="_blank"
         rel="noreferrer"
         className="fixed left-5 bottom-4 flex flex-col"
