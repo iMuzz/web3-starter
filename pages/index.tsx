@@ -50,7 +50,7 @@ const Home: NextPage = () => {
         rel="noreferrer"
         className="fixed left-5 bottom-4 flex flex-col"
       >
-        <Image src="/github.png" alt="Github Icon" width="35" height="35" />
+        <Image className="bg-white rounded-full" src="/github.png" alt="Github Icon" width="35" height="35" />
       </a>
       <div className="fixed right-5 bottom-4 flex flex-col">
         <div className="text-gray-500 dark:text-white text-xs mb-2 text-center">Maintained By</div>
