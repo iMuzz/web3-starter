@@ -10,7 +10,7 @@ import Navbar from '../components/navbar'
 
 const Home: NextPage = () => {
   const wallet = useWallet()
-  const { status } = wallet
+  const { status, networkName } = wallet
 
   return (
     <div className="max-w-screen-xl m-auto pb-4 md:pb-12">
@@ -36,7 +36,7 @@ const Home: NextPage = () => {
         <GMModeSection />
       </div>
 
-      {status === 'connected' && (
+      {status === 'connected' && networkName !== 'main' && (
         <div className="flex mt-4 space-x-3">
           <div className="flex justify-center mt-8 border-t border-solid border-gray-200 max-w-4xl m-auto">
             <AdminPanel />
