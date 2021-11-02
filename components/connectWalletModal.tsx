@@ -67,7 +67,7 @@ export default function connectModal({ isOpen, setIsOpen }: IProps) {
                 >
                   <Image src="/metamask.svg" width="50" height="50" alt="Metamask Logo" />
                   <div className="text-center mt-1">
-                    <h2 className="text-2xl font-semibold">MetaMask</h2>
+                    <h2 className="text-2xl font-semibold dark:text-gray-900">MetaMask</h2>
                     <p className="text-gray-500">Connect your metamask wallet.</p>
                   </div>
                 </div>
@@ -77,7 +77,7 @@ export default function connectModal({ isOpen, setIsOpen }: IProps) {
                 >
                   <Image src="/wallet-connect.svg" width="40" height="40" alt="Metamask Logo" />
                   <div className="text-center mt-1">
-                    <h2 className="text-2xl font-semibold">Wallet Connect</h2>
+                    <h2 className="text-2xl font-semibold dark:text-gray-900">Wallet Connect</h2>
                     <p className="text-gray-500">Scan with your favorite wallet to connect.</p>
                   </div>
                 </div>
