@@ -14,6 +14,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <UseWalletProvider
           connectors={{
             walletconnect: {
+              // TODO: support testnet configurations
+              // chainId 1 is mainnet
+              chainId: 1,
               rpcUrl: 'https://eth-mainnet.alchemyapi.io/v2/GBjvplStTQ2x1FiAa5-5Qdyv2_8ZBuwe',
             },
           }}
