@@ -32,10 +32,9 @@ const Home: NextPage = () => {
         <GMModeSection />
       </div>
 
-      <div className="flex justify-center mt-8">
+      <div className="flex justify-center mt-8 border-t border-solid border-gray-200 max-w-4xl m-auto">
         {status === 'connected' && (
-          <div className="flex space-x-3">
-            <AdminPanel />
+          <div className="flex mt-4 space-x-3">
             <AdminPanel />
           </div>
         )}
