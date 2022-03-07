@@ -55,7 +55,7 @@ const Home: NextPage = () => {
       <div className="fixed right-5 bottom-4 flex flex-col">
         <div className="text-gray-500 dark:text-white text-xs mb-2 text-center">Maintained By</div>
         <div>
-          <a className="mr-2" href="https://twitter.com/faraaznishtar" target="_blank" rel="noreferrer">
+          <a className="mr-2" href="https://twitter.com/faraaz" target="_blank" rel="noreferrer">
             <Image className="rounded-full" src="/peng.jpeg" alt="Faraaz N." width="35" height="35" />
           </a>
           <a href="https://twitter.com/jonathanmcai" rel="noreferrer" target="_blank">
