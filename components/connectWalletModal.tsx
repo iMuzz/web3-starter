@@ -1,30 +1,15 @@
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-
+import { useConnect } from 'wagmi'
 import Image from 'next/image'
-
-import useWeb3Container from '../hooks/useWeb3User'
-import Button from './button'
 
 interface IProps {
   isOpen: boolean
   setIsOpen: (value: boolean) => void
 }
 
-export default function connectModal({ isOpen, setIsOpen }: IProps) {
-  const { wallet } = useWeb3Container.useContainer()
-
-  const handleConnect = () => {
-    wallet.connect('injected').then(() => {
-      setIsOpen(false)
-    })
-  }
-
-  const handleWalletConnect = () => {
-    wallet.connect('walletconnect').then(() => {
-      setIsOpen(false)
-    })
-  }
+const ConnectWalletModal: React.FC<IProps> = ({ isOpen, setIsOpen }) => {
+  const [{ data, error }, connect] = useConnect()
 
   const closeModal = () => {
     setIsOpen(false)
@@ -61,29 +46,35 @@ export default function connectModal({ isOpen, setIsOpen }: IProps) {
           >
             <div className="inline-block w-full max-w-md my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
               <div className="flex flex-col">
-                <div
-                  className="hover:bg-gray-100 border-b border-solid border-gray-200 transition-all duration-200 cursor-pointer flex flex-col justify-center p-6 py-8"
-                  onClick={handleConnect}
-                >
-                  <Image src="/metamask.svg" width="50" height="50" alt="Metamask Logo" />
-                  <div className="text-center mt-1">
-                    <h2 className="text-2xl font-semibold dark:text-gray-900">MetaMask</h2>
-                    <p className="text-gray-500">Connect your metamask wallet.</p>
+                {data.connectors.map((x) => (
+                  <div
+                    className="flex flex-col justify-center p-6 py-8 transition-all duration-200 cursor-pointer hover:bg-gray-100"
+                    key={x.id}
+                    onClick={() => connect(x)}
+                  >
+                    {x.name == 'MetaMask' ? (
+                      <Image src="/metamask.svg" width="50" height="50" alt="Metamask Logo" />
+                    ) : x.name == 'WalletConnect' ? (
+                      <Image src="/wallet-connect.svg" width="50" height="50" alt="Metamask Logo" />
+                    ) : (
+                      <Image src="/coinbase.svg" width="80" height="80" alt="Metamask Logo" />
+                    )}
+                    <div className="mt-1 text-center">
+                      <h2 className="text-2xl font-semibold dark:text-gray-900">{x.name} Connect</h2>
+                      <p className="text-gray-500">Connect with your favorite wallet.</p>
+                    </div>
+                    {!x.ready && ' (unsupported)'}
                   </div>
-                </div>
-                <div
-                  className="hover:bg-gray-100 transition-all duration-200 cursor-pointer flex flex-col justify-center p-6 py-8"
-                  onClick={handleWalletConnect}
-                >
-                  <Image src="/wallet-connect.svg" width="40" height="40" alt="Metamask Logo" />
-                  <div className="text-center mt-1">
-                    <h2 className="text-2xl font-semibold dark:text-gray-900">Wallet Connect</h2>
-                    <p className="text-gray-500">Scan with your favorite wallet to connect.</p>
+                ))}
+                {error && (
+                  <div className="relative p-4 mt-3 bg-red-500 rounded-lg rounded-tr-none opacity-100">
+                    {error?.message ?? 'Failed to connect'}
                   </div>
-                </div>
+                )}
               </div>
             </div>
           </Transition.Child>
+
           <style jsx>{`
             :global(.dialogue-overlay) {
               background-color: black;
@@ -95,3 +86,5 @@ export default function connectModal({ isOpen, setIsOpen }: IProps) {
     </Transition>
   )
 }
+
+export default ConnectWalletModal

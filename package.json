@@ -36,7 +36,7 @@
     "react-hot-toast": "^2.1.1",
     "tailwindcss": "^2.2.15",
     "unstated-next": "^1.1.0",
-    "use-wallet": "^0.13.0",
+    "wagmi": "^0.2.18",
     "yarn": "^1.22.17"
   },
   "devDependencies": {
