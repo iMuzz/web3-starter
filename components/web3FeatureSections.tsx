@@ -6,15 +6,14 @@ import Button from './button'
 import Spinner from './spinner'
 import AddressPill from './addressPill'
 import DarkModeToggle from './darkModeToggle'
-import ConnectWallet from './connectWalletModal'
 
-interface IFeatureSectionProps {
+interface IFeatureSectionProps extends React.PropsWithChildren {
   title: string
   description: string
   bgColorOverride?: string
 }
 
-const FeatureSection: React.FC<IFeatureSectionProps> = ({ title, description, children, bgColorOverride }) => {
+const FeatureSection: React.FC<IFeatureSectionProps> = ({ title, description, bgColorOverride, children }) => {
   return (
     <div className="shadow-md rounded-md border border-solid light:border-gray-200 dark:border-gray-500 grid grid-rows-1 md:grid-cols-2 gap-2 overflow-hidden">
       <div className="p-6">
@@ -27,7 +26,6 @@ const FeatureSection: React.FC<IFeatureSectionProps> = ({ title, description, ch
 }
 
 export const WalletConnectSection: React.FC<{}> = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false)
   return (
     <FeatureSection
       title="Multiwallet Support"
