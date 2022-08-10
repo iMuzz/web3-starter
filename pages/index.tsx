@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { Toaster } from 'react-hot-toast'
 
 import { ENSSection, TxStatesSection, GMModeSection, WalletConnectSection } from '../components/web3FeatureSections'
-// import AdminPanel from '../components/adminPanel'
+import AdminPanel from '../components/adminPanel'
 import Navbar from '../components/navbar'
 
 const Home: NextPage = () => {
@@ -33,13 +33,11 @@ const Home: NextPage = () => {
         <GMModeSection />
       </div>
 
-      {/* {status === 'connected' && networkName !== 'main' && (
-        <div className="flex mt-4 space-x-3">
-          <div className="flex justify-center mt-8 border-t border-solid border-gray-200 max-w-4xl m-auto">
-            <AdminPanel />
-          </div>
+      <div className="flex mt-4 space-x-3">
+        <div className="flex justify-center mt-8 border-t border-solid border-gray-200 max-w-4xl m-auto">
+          <AdminPanel />
         </div>
-      )} */}
+      </div>
 
       <a
         href="https://github.com/iMuzz/web3-starter"

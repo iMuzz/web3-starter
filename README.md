@@ -4,15 +4,13 @@ Web 3 Starter is a modern web 3 starter template project.
 
 Here's the full stack of frameworks/libraries used:
 
-- Next.js React 
+- Next.js React
 - TailwindCSS for styling
 - [HeadlessUI](https://headlessui.dev/) for Tailwind components
-- [use-wallet](https://github.com/aragon/use-wallet) to connect to Ethereum wallets
-- [davatar](https://www.davatar.xyz/) for ENS avatars
+- [@rainbow-me/rainbowkit](https://github.com/rainbow-me/rainbowkit) to connect to ethereum wallets
 - [react-hot-toast](https://react-hot-toast.com/) for toast messages
 - [unstated-next](https://github.com/jamiebuilds/unstated-next) for state management
 - [next-themes](https://www.npmjs.com/package/next-themes) for dark mode theme
-
 
 ## How to Setup Development Environment
 
