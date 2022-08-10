@@ -33,11 +33,11 @@ const Home: NextPage = () => {
         <GMModeSection />
       </div>
 
-      <div className="flex mt-4 space-x-3">
-        <div className="flex justify-center mt-8 border-t border-solid border-gray-200 max-w-4xl m-auto">
+      {/* <div className="flex mt-4 space-x-3">
+        <div className="flex justify-center mt-8  max-w-4xl m-auto">
           <AdminPanel />
         </div>
-      </div>
+      </div> */}
 
       <a
         href="https://github.com/iMuzz/web3-starter"
